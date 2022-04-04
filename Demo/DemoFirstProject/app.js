@@ -70,3 +70,13 @@ doCallback((err, result) => {
 
     console.log(result)
 })
+
+// Tableau imbriqué
+
+const oxo = [
+    ["O", "X", "O"],
+    ["X", "X", "O"],
+    ["O", "O", "X"]
+]
+
+console.log(oxo[1][1])
