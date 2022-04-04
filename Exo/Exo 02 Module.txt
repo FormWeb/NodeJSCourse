@@ -1,0 +1,4 @@
+- Faire un module qui permet : 
+	- d'ajouter (via une promesse) une note avec un titre dans un fichier 
+	 (le crée si il n'existe pas)
+	- de lire un fichier (via une promesse)
