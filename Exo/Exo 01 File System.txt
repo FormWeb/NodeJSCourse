@@ -1,6 +1,0 @@
-- Faire 3 fonctions :
-	- Une qui permet d'ajouter un message dans un fichier
-	(avec les 3 manières de faire (synchrone, asynchrone
-	avec callback et asynchrone avec promesse))
-	- Une qui permet de lire le contenu d'un fichier
-	- Une qui permet d'effacer le contenu du fichier
