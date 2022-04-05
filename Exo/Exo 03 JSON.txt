@@ -1,0 +1,9 @@
+- Faire un programme qui permet de stocker des
+numéros de téléphone dans un fichier JSON
+
+- Créer un module dédier à la manipulation de ce
+fichier JSON qui contiendra :
+	- Fonction pour ajouter un numéro
+	- Fonction pour supprimer un numéro
+	- Fonction pour voir les numéros enregistrer
+	- Fonction pour chercher un numéro via un nom

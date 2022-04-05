@@ -1,0 +1,4 @@
+- Faire un module qui permet de calculer :
+	- L'air d'un cercle
+	- L'air d'un rectangle
+	- L'air d'un triangle

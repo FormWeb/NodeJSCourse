@@ -1,0 +1,17 @@
+- Fonction qui inverse une chaine de caractère
+
+- Fonction qui retourne vrai si une chaine de caractère entrée
+en paramètre est palindrome, sinon elle renvoie faux (utiliser la
+fonction coder précédemment)
+
+- Fonction qui prend en paramètre un indice de la suite de fibonnacci
+et qui renvoie la valeur à cette indice
+
+// Exemple => fibonnacci(5) doit renvoyer 5
+	   => fibonnacci(12) doit renvoyer 144
+
+- Simuler des dons de cadeaux aléatoire à Noël. La fonction prend
+en paramètre une liste de nom et renvoie des couples de donneurs/receveur
+
+// Exemple => noel(["Jean", "Jacques", "Jules"]) doit renvoyer
+	      [["Jean", "Jacques"], ["Jules", "Jean"], ["Jacques", "Jules"]]
