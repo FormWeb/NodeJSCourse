@@ -1,0 +1,8 @@
+- Faire une application qui permet via l'API MovieDB :
+	- De récupérer les films plus populaires
+	(BONUS: gestion de la page)
+	- De récupérer les films les mieux notés
+	- De chercher un film via le nom
+
+APIKEY : c9e23b610c2f0c1040a493fc10ce5aaf
+URL : https://developers.themoviedb.org/3/movies/get-movie-details
