@@ -1,0 +1,5 @@
+- Ajouter des commandes Yargs dans l'application de numéro de téléphone pour : 
+	- Ajouter
+	- Supprimer un numéro
+	- Récupérer les numéros
+	- Récupérer un numéro avec le nom
