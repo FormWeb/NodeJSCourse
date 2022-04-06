@@ -1,0 +1,45 @@
+- Faire un programme qui permet de gérer en ligne de
+commande une base de données pour une école
+
+- Cette  base de données comporte 3 tables
+	- Cours
+		- ID
+		- Titre
+		- Description
+
+	- Professeur
+		- iD
+		- Nom
+		- Prenom
+		- Email
+
+	- Eleve
+		- ID
+		- Nom
+		- Prenom
+		- Email
+
+- Un élève est associé à plusieurs cours et un cours est associé à plusieurs élève
+- Un cours a un professeur attitré
+
+Pour Cours :
+	- Récupérer les cours,
+	- Insérer un cours
+	- Récupérer un cours via son id
+	- Update un cours
+	- Associer un professeur à un cours
+
+Pour Professeur :
+	- Récupérer les professeurs
+	- Récupérer un professeur avec son id
+	- Insérer un professeur
+	- Update un professeur
+	- Récupérer les cours du professeurs
+
+Pour Eleve: 
+	- Récupérer les eleve
+	- Récupérer un eleve avec son id
+	- Insérer un eleve
+	- Update un eleve
+	- Récupérer les cours d'un l'élève
+	- Associer un cours à un élève
