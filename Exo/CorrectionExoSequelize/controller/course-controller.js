@@ -20,6 +20,9 @@ const courseController = {
     async associateProfessor(id, professorId) {
         const course = await db.Course.findByPk(id);
         const professor = await db.Professor.findByPk(professorId);
+        // return db.Course.update({
+        //     ProfessorId: professorId
+        // }, { where : { id: id } })
         return course.setProfessor(professor);
     }
 }

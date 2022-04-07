@@ -23,9 +23,13 @@ const studentController = {
     },
 
     async associateStudentToCourse(studentId, courseId) {
-        const student = await db.Student.findByPk(studentId);
-        const course = await db.Course.findByPk(courseId);
-        return student.addCourse(course);
+        // const student = await db.Student.findByPk(studentId);
+        // const course = await db.Course.findByPk(courseId);
+        return db.sequelize.model("StudentCourse").create({
+            StudentId: studentId,
+            CourseId: courseId
+        })
+        // return student.addCourse(course);
     }
 }
 

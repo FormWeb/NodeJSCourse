@@ -9,7 +9,9 @@ yargs(hideBin(process.argv))
         handler: () => {
             studentController.getAllStudents()
                 .then(students => {
-                    console.log(students);
+                    console.log(JSON.stringify(students.map(
+                        elem => elem.toJSON()
+                    ), null, 2));
                 })
         }
     })
@@ -26,7 +28,7 @@ yargs(hideBin(process.argv))
         handler(args) {
             studentController.getStudentById(args.id)
                 .then(student => {
-                    console.log(student);
+                    console.log(student.toJSON());
                 })
         }
     })
