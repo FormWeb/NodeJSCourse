@@ -1,0 +1,2 @@
+Reprendre la démo Sequelize et changer les commandes yargs pour qu'elles deviennent des routes
+de votre serveur web

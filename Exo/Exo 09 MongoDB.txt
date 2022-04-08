@@ -1,0 +1,18 @@
+- Faire une api qui permet de
+gérer une base de donnée de
+plusieurs bibliothèque
+
+- Il y aura
+	- Des auteurs
+		- firstname
+		- lastname
+		- liste de livre
+
+	- Des livres
+		- title
+		- overview
+		- liste d'auteurs
+
+	- Des bibliothèque
+		- name
+		- liste de livre
