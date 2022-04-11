@@ -1,0 +1,9 @@
+- Faire une api qui communique avec une base de données
+	- Minimum 5 tables/collections	
+	- Faites un schéma relationnel
+	- Ecrivez les requêtes SQL
+	- Librairie au choix :
+		- Mysql2
+		- Sequelize
+		- Mongoose
+	
