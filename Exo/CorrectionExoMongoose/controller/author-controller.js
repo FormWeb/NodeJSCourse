@@ -5,17 +5,18 @@ const getRequestData = require("../helper/get-request-data")
 
 const authorController = {
     async insertAuthor(req, res) {
-        const data = await getRequestData(req)
-        const newAuthor = new Author(data)
-        newAuthor.save()
-            .then(() => {
-                res.write(JSON.stringify({ message: "Author inserted" }))
-                res.end()
-            })
-            .catch(() => {
-                res.write(JSON.stringify({ message: "Error" }))
-                res.end()
-            })
+        try {
+            const data = await getRequestData(req)
+            const newAuthor = new Author(data)
+            await newAuthor.save()
+
+            res.write(JSON.stringify({ message: "Author inserted" }))
+            res.end()
+        }
+        catch (err) {
+            res.write(JSON.stringify({ message: "Error" }))
+            res.end()
+        }
     },
 
     getAuthors(res) {
@@ -46,42 +47,49 @@ const authorController = {
     },
 
     async deleteAuthor(req, res) {
-        const data = await getRequestData(req)
-        Author.deleteOne({ _id: data.id })
-            .then(() => {
-                res.write(JSON.stringify({ message: "Author deleted" }))
-                res.end()
-            })  
-            .catch(() => {
-                res.write(JSON.stringify({ message: "Error" }))
-                res.end()
-            })
+        try {
+            const data = await getRequestData(req)
+            await Author.deleteOne({ _id: data.id })
+            res.write(JSON.stringify({ message: "Author deleted" }))
+            res.end()
+        }
+        catch (err) {
+            res.write(JSON.stringify({ message: "Error" }))
+            res.end()
+        }
     },
 
     async addBook(req, res) {
-        const data = await getRequestData(req)
-        const book = new Book(data.book)
-
-        for (const id of data.ids) {
-            book.authors.push(id)
-        }
-        book.save()
-
-        // {
-        //      book: {},
-        //      ids: []
-        // }
-
-        for (const id of data.ids) {
-            const author = await Author.findById(id)
-            if (author) {
-                author.books.push(book._id)
-                author.save()
+        try {
+            const data = await getRequestData(req)
+            const book = new Book(data.book)
+    
+            for (const id of data.ids) {
+                book.authors.push(id)
             }
-        }
+            book.save()
+    
+            // {
+            //      book: {},
+            //      ids: []
+            // }
+    
+            for (const id of data.ids) {
+                const author = await Author.findById(id)
+                if (author) {
+                    author.books.push(book._id)
+                    author.save()
+                }
+            }
+    
+            res.write(JSON.stringify({ message: "Fait"}))
+            res.end()
 
-        res.write(JSON.stringify({ message: "Fait"}))
-        res.end()
+        }
+        catch (err) {
+            res.write(JSON.stringify({ message: "Error" }))
+            res.end()
+        }
     }
 }
 

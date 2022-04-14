@@ -16,6 +16,10 @@ const libraryController = {
                         res.end()
                     })
             })
+            .catch((err) => {
+                res.write(JSON.stringify({ message: "Error" }))
+                res.end()
+            })
     },
 
     getLibrary(res) {
@@ -24,8 +28,11 @@ const libraryController = {
                 res.write(JSON.stringify({ message: "Error" }))
                 res.end()
             }
-            res.write(JSON.stringify(data))
-            res.end()
+            else {
+                res.write(JSON.stringify(data))
+                res.end()
+
+            }
         })
     },
 
@@ -54,6 +61,10 @@ const libraryController = {
                         res.write(JSON.stringify({ message: "Error" }))
                         res.end()
                     })
+            })
+            .catch((err) => {
+                res.write(JSON.stringify({ message: "Error" }))
+                res.end()
             })
     },
 
