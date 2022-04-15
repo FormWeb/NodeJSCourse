@@ -8,15 +8,18 @@ const libraryController = {
                 const newLibrary = new Library(data)
                 newLibrary.save()
                     .then(() => {
+                        res.writeHead(200, headers)
                         res.write(JSON.stringify({ message: "Library inserted" }))
                         res.end()
                     })
                     .catch(() => {
+                        res.writeHead(400, headers)
                         res.write(JSON.stringify({ message: "Error" }))
                         res.end()
                     })
             })
             .catch((err) => {
+                res.writeHead(400, headers)
                 res.write(JSON.stringify({ message: "Error" }))
                 res.end()
             })
@@ -25,10 +28,12 @@ const libraryController = {
     getLibrary(res) {
         Library.find((err, data) => {
             if (err) {
+                res.writeHead(400, headers)
                 res.write(JSON.stringify({ message: "Error" }))
                 res.end()
             }
             else {
+                res.writeHead(200, headers)
                 res.write(JSON.stringify(data))
                 res.end()
 
@@ -40,10 +45,12 @@ const libraryController = {
         Library.findOne({ _id: id })
             .populate("books", "title")
             .then((data) => {
+                res.writeHead(200, headers)
                 res.write(JSON.stringify(data))
                 res.end()
             })
             .catch(() => {
+                res.writeHead(400, headers)
                 res.write(JSON.stringify({ message: "Error" }))
                 res.end()
             })
@@ -54,15 +61,18 @@ const libraryController = {
             .then((data) => {
                 Library.deleteOne({ _id: data.id})
                     .then(() => {
+                        res.writeHead(200, headers)
                         res.write(JSON.stringify({ message: "Library deleted" }))
                         res.end()
                     })
                     .catch(() => {
+                        res.writeHead(400, headers)
                         res.write(JSON.stringify({ message: "Error" }))
                         res.end()
                     })
             })
             .catch((err) => {
+                res.writeHead(400, headers)
                 res.write(JSON.stringify({ message: "Error" }))
                 res.end()
             })
@@ -75,15 +85,18 @@ const libraryController = {
                 library.books.push(data.idBook)
                 library.save()
                     .then(() => {
+                        res.writeHead(200, headers)
                         res.write(JSON.stringify({ message: "Book added" }))
                         res.end()
                     })
                     .catch(() => {
+                        res.writeHead(400, headers)
                         res.write(JSON.stringify({ message: "Error" }))
                         res.end()
                     })
             })
             .catch(() => {
+                res.writeHead(400, headers)
                 res.write(JSON.stringify({ message: "Error" }))
                 res.end()
             })

@@ -8,15 +8,18 @@ const bookController = {
                 const newBook = new Book(data)
                 newBook.save()
                     .then(() => {
+                        res.writeHead(200, headers)
                         res.write(JSON.stringify({ message: "Book inserted" }))
                         res.end()
                     })
                     .catch(() => {
+                        res.writeHead(400, headers)
                         res.write(JSON.stringify({ message: "Error" }))
                         res.end()
                     })
             })
             .catch((err) => {
+                res.writeHead(400, headers)
                 res.write(JSON.stringify({ message: "Error" }))
                 res.end()
             })
@@ -25,11 +28,12 @@ const bookController = {
     getBooks(res) {
         Book.find((err, data) => {
             if (err) {
+                res.writeHead(200, headers)
                 res.write(JSON.stringify({ message: "Error" }))
                 res.end()
             }
             else {
-
+                res.writeHead(400, headers)
                 res.write(JSON.stringify(data))
                 res.end()
             }
@@ -40,10 +44,12 @@ const bookController = {
         Book.findOne({ _id: id })
             .populate("authors", "firstName lastName")
             .then((data) => {
+                res.writeHead(200, headers)
                 res.write(JSON.stringify(data))
                 res.end()
             })
             .catch(() => {
+                res.writeHead(400, headers)
                 res.write(JSON.stringify({ message: "Error" }))
                 res.end()
             })
@@ -54,15 +60,18 @@ const bookController = {
             .then((data) => {
                 Book.deleteOne({ _id: data.id})
                     .then(() => {
+                        res.writeHead(200, headers)
                         res.write(JSON.stringify({ message: "Book deleted" }))
                         res.end()
                     })
                     .catch(() => {
+                        res.writeHead(400, headers)
                         res.write(JSON.stringify({ message: "Error" }))
                         res.end()
                     })
             })
             .catch((err) => {
+                res.writeHead(400, headers)
                 res.write(JSON.stringify({ message: "Error" }))
                 res.end()
             })
