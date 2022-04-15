@@ -14,8 +14,27 @@ http.createServer((req, res) => {
 
     console.log(path)
     console.log(query)
+    console.log(req.method)
 
-    res.writeHead(200, { "Content-Type": "application/json" })
+    const headers = {
+
+        'Access-Control-Allow-Origin': '*',
+
+        "Access-Control-Allow-Headers": "*",
+
+        'Access-Control-Allow-Methods': 'OPTIONS, POST, GET, PUT, PATCH',
+
+        'Access-Control-Max-Age': 2592000, // 30 days
+
+        "Content-Type": "application/json"
+
+    };
+
+    res.writeHead(200, headers)
+
+    // if (req.method==="OPTIONS") {
+    //     res.end()
+    // }
 
     // Author path
 
@@ -50,7 +69,7 @@ http.createServer((req, res) => {
         bookController.getBookById(res, query.id)
     }
 
-    if (path === "/book" && req.method === "POST") {
+    if (path === "/book" && req.method === "PUT") {
         bookController.insertBook(req, res)
     }
 

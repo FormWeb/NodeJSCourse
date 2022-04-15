@@ -63,30 +63,29 @@ const authorController = {
         try {
             const data = await getRequestData(req)
             const book = new Book(data.book)
-    
+            
             for (const id of data.ids) {
                 book.authors.push(id)
             }
-            book.save()
-    
-            // {
-            //      book: {},
-            //      ids: []
-            // }
+            await book.save()
+            console.log("hello")
     
             for (const id of data.ids) {
                 const author = await Author.findById(id)
                 if (author) {
                     author.books.push(book._id)
-                    author.save()
+                    await author.save()
                 }
             }
+
+            console.log("hello2")
     
             res.write(JSON.stringify({ message: "Fait"}))
             res.end()
 
         }
         catch (err) {
+            console.log(err)
             res.write(JSON.stringify({ message: "Error" }))
             res.end()
         }
